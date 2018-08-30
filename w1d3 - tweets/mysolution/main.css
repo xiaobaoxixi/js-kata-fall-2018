@@ -9,3 +9,6 @@ input {
   margin-right: 2vw;
   height: auto;
 }
+#hashtags span {
+  cursor: pointer;
+}
