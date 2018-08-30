@@ -1,0 +1,11 @@
+input {
+  display: inline;
+  border: 1px solid black;
+  width: 4ch;
+}
+#single-tweet {
+  display: inline-block;
+  width: 30vw;
+  margin-right: 2vw;
+  height: auto;
+}
