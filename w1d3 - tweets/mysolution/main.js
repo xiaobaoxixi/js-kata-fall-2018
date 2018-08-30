@@ -11,7 +11,6 @@ function showTweets(data) {
     let clone = template.cloneNode(true);
     clone.querySelector("p").textContent = t.text;
     if (t.entities.hashtags.length > 0) {
-      console.log("has");
       let allHashtags = t.entities.hashtags;
       allHashtags.forEach(getHashtag);
       function getHashtag(h) {
