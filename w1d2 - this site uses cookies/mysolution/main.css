@@ -6,7 +6,7 @@ div {
   top: -100px;
 }
 div.slide-in {
-  animation: slide-in 0.5s forwards ease-in;
+  animation: slide-in 0.7s forwards ease-in;
 }
 @keyframes slide-in {
   to {

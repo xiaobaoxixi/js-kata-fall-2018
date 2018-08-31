@@ -12,7 +12,17 @@ If you feel like doing a bit more, take a look at a newer alternative to cookies
 */
 "use strict";
 const div = document.querySelector("div");
+const yes = document.querySelector("button:first-of-type");
+const no = document.querySelector("button:nth-of-type(2)");
 window.addEventListener("load", slideIn);
 function slideIn() {
   div.classList.add("slide-in");
+}
+yes.addEventListener("click", slideOut);
+function slideOut() {
+  div.classList.remove("slide-in");
+}
+no.addEventListener("click", insist);
+function insist() {
+  div.querySelector("p").textContent = "You have to agree!";
 }
