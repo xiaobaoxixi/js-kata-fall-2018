@@ -14,15 +14,28 @@ If you feel like doing a bit more, take a look at a newer alternative to cookies
 const div = document.querySelector("div");
 const yes = document.querySelector("button:first-of-type");
 const no = document.querySelector("button:nth-of-type(2)");
-window.addEventListener("load", slideIn);
+window.addEventListener("load", checkIfAlreadyAgreed);
+function checkIfAlreadyAgreed() {
+  if (!window.localStorage.getItem("agreed")) {
+    console.log("not yet agreed");
+    slideIn();
+  } else {
+    alert("already agreed. Restart live-server to see notification of cookies");
+  }
+}
 function slideIn() {
   div.classList.add("slide-in");
 }
 yes.addEventListener("click", slideOut);
 function slideOut() {
   div.classList.remove("slide-in");
+  setLocalStorage();
 }
 no.addEventListener("click", insist);
 function insist() {
   div.querySelector("p").textContent = "You have to agree!";
+}
+// optional
+function setLocalStorage() {
+  window.localStorage.setItem("agreed", "yes");
 }
