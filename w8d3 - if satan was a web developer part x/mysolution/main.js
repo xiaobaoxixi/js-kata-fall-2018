@@ -52,4 +52,5 @@ function reset() {
   function clearAllExistingDigit(d) {
     d.querySelector("p").textContent = "";
   }
+  // because didn't clear interval incase of reset, so the fist digit will be generated right after this point.
 }
