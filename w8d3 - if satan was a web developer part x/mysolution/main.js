@@ -39,3 +39,15 @@ function setDigit() {
     init();
   }
 }
+
+document.querySelector("button.reset").addEventListener("click", reset);
+function reset() {
+  digitIndex = 1;
+  currentDigit = document.querySelector(
+    `.phoneNumberDigit:nth-of-type(${digitIndex}) p`
+  );
+  allDigits.forEach(clearAllExistingDigit);
+  function clearAllExistingDigit(d) {
+    d.querySelector("p").textContent = "";
+  }
+}
