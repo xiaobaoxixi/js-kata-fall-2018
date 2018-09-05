@@ -80,3 +80,12 @@ function generateSameLightness() {
     d.style.backgroundColor = `hsl(${hslColors})`;
   }
 }
+
+/** optional: remove color stripe when clicked*/
+let allDivs = document.querySelectorAll("div");
+allDivs.forEach(removeDiv);
+function removeDiv(d) {
+  d.addEventListener("click", function(d) {
+    d.target.remove();
+  });
+}
