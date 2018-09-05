@@ -7,7 +7,7 @@ let loopNumInterval;
 window.addEventListener("load", init);
 function init() {
   currentDigit.textContent = 0;
-  loopNumInterval = setInterval(loopNum, 200);
+  loopNumInterval = setInterval(loopNum, 130);
 }
 function loopNum() {
   if (Number(currentDigit.textContent) + 1 > 9) {
@@ -18,15 +18,17 @@ function loopNum() {
 }
 
 const allDigits = document.querySelectorAll(".phoneNumberDigit");
-allDigits.forEach(catchClicked);
-function catchClicked(d) {
-  d.addEventListener("click", checkHasValue);
-  function checkHasValue(d) {
-    if (d.target.textContent.length > 0) {
-      setDigit();
-    }
-  }
-}
+// allDigits.forEach(catchClicked);
+// function catchClicked(d) {
+//   d.addEventListener("click", checkHasValue);
+//   function checkHasValue(d) {
+//     if (d.target.textContent.length > 0) {
+//       setDigit();
+//     }
+//   }
+// }
+const setButton = document.querySelector(".set");
+setButton.addEventListener("click", setDigit);
 
 function setDigit() {
   let setValue = currentDigit.textContent;
