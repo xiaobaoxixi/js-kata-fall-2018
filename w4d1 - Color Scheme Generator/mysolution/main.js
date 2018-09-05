@@ -18,8 +18,8 @@ function generateRGB(d) {
   /** optional 1: no duplicated colors */
   if (rgbColors.indexOf(rgbCodes) < 0) {
     rgbColors.push(rgbCodes);
-    d.textContent = `rgb(${rgbCodes})`;
-    d.style.backgroundColor = `rgb( ${rgbCodes})`;
+    if (d) d.textContent = `rgb(${rgbCodes})`;
+    if (d) d.style.backgroundColor = `rgb( ${rgbCodes})`;
   } else {
     generateRGB();
   }
@@ -82,10 +82,20 @@ function generateSameLightness() {
 }
 
 /** optional: remove color stripe when clicked*/
-let allDivs = document.querySelectorAll("div");
+let allDivs = document.querySelectorAll("div[class]");
 allDivs.forEach(removeDiv);
 function removeDiv(d) {
   d.addEventListener("click", function(d) {
     d.target.remove();
   });
+}
+
+/** optional: add rgb color stripe */
+document.querySelector(".addRGB").addEventListener("click", addRGB);
+function addRGB() {
+  let newDiv = document.createElement("div");
+  generateRGB();
+  newDiv.style.backgroundColor = `rgb(${rgbColors[rgbColors.length - 1]})`;
+  newDiv.textContent = `rgb(${rgbColors[rgbColors.length - 1]})`;
+  document.querySelector("section").appendChild(newDiv);
 }
