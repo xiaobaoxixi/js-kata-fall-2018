@@ -19,4 +19,5 @@ let foundIndex2 = arr.map(function(item, index) {
   }
 });
 let foundIndex2ClearedUp = foundIndex2.filter(item => item > -1); //clear out the falses in the []
+
 console.log(foundIndex2ClearedUp);
