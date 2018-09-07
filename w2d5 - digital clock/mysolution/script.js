@@ -1,15 +1,18 @@
 "use strict";
 
+let today, hour, minute, second;
 let sixDigits = [];
 window.addEventListener("load", getCurrentTime);
 function getCurrentTime() {
-  let today = new Date();
-  let hour = today.getHours();
-  let minute = today.getMinutes();
-  let second = today.getSeconds();
+  sixDigits = [];
+  today = new Date();
+  hour = today.getHours();
+  minute = today.getMinutes();
+  second = today.getSeconds();
   splitDigit(hour);
   splitDigit(minute);
   splitDigit(second);
+  setTimeout(getCurrentTime, 1000);
 }
 
 function splitDigit(x) {
