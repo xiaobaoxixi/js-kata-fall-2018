@@ -44,7 +44,7 @@ function loopThroughDigits(sixDigits) {
         "-300px 0px";
     if (x === 4)
       document.querySelector(`.digit${i}`).style.backgroundPosition =
-        "-400px 0px";
+        "-401px 0px";
     if (x === 5)
       document.querySelector(`.digit${i}`).style.backgroundPosition =
         "0 -135px";
@@ -59,6 +59,6 @@ function loopThroughDigits(sixDigits) {
         "-300px -135px";
     if (x === 9)
       document.querySelector(`.digit${i}`).style.backgroundPosition =
-        "-400px -135px";
+        "-401px -135px";
   }
 }
