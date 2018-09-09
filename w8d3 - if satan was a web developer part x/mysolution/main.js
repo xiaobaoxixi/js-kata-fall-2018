@@ -54,3 +54,55 @@ function reset() {
   }
   // because didn't clear interval with the reset function, so the fist digit will be generated right after this point.
 }
+
+/* 2 ******************************************************/
+const pi = document.querySelector(".pi p").textContent;
+const backwardButton = document.querySelector(".backward");
+const forwardButton = document.querySelector(".forward");
+let originalHtml;
+let newHtml;
+let newP = "";
+let index = 2;
+let resumeIndex;
+let forTimeout;
+let backTimeout;
+
+function makeBigger(i) {
+  newP = pi.slice(0, i);
+  for (let j = i; j < i + 10; j++) {
+    newHtml = `<span class="bigger">${pi[j]}</span>`;
+    newP += newHtml;
+  }
+  newP += pi.slice(i + 10);
+  document.querySelector(".pi p").innerHTML = newP;
+}
+makeBigger(index);
+
+backwardButton.addEventListener("mouseenter", backward);
+backwardButton.addEventListener("mouseleave", function() {
+  clearTimeout(backTimeout);
+  originalHtml = document.querySelector(".pi p").innerHTML;
+  index = Array.from(originalHtml).indexOf("<");
+});
+forwardButton.addEventListener("mouseenter", forward);
+
+forwardButton.addEventListener("mouseleave", function() {
+  clearTimeout(forTimeout);
+  originalHtml = document.querySelector(".pi p").innerHTML;
+  index = Array.from(originalHtml).indexOf("<");
+});
+
+function forward() {
+  if (index < 1199) {
+    index++;
+    makeBigger(index);
+    forTimeout = setTimeout(forward, 50);
+  }
+}
+function backward() {
+  if (index > 2) {
+    index--;
+    makeBigger(index);
+    backTimeout = setTimeout(backward, 50);
+  }
+}

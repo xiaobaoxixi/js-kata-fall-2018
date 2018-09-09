@@ -14,3 +14,10 @@ section {
   padding: 10px;
   cursor: pointer;
 }
+.pi p::first-letter {
+  color: lightblue;
+  font-size: 2em;
+}
+.bigger {
+  font-size: 1.7em;
+}
