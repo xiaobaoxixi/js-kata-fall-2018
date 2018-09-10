@@ -56,7 +56,7 @@ function reset() {
 }
 
 /* 2 ******************************************************/
-const pi = document.querySelector(".pi p").textContent;
+const pi = document.querySelector(".pi p").textContent.replace(/\s+/g, " "); //this includes whitespaces/newlines, need to be replaced with normal space, otherwise will give "break" of function
 const backwardButton = document.querySelector(".backward");
 const forwardButton = document.querySelector(".forward");
 let originalHtml;
