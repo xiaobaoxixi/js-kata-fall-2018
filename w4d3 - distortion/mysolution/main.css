@@ -1,0 +1,5 @@
+.nrInQueue {
+  border-radius: 50%;
+  background: teal;
+  transition: all 2s;
+}
