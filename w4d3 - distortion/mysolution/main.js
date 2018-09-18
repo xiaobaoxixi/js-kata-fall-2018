@@ -13,6 +13,18 @@ function update() {
       document.querySelector(".nrInQueue").style.margin = `calc(50vh - .5*${10 +
         nr * 1.5}vh) auto`;
     }
+    if (nr > 17) {
+      document.querySelector(".nrInQueue").style.backgroundColor =
+        "hsl(0, 70%, 50%)";
+    }
+    if (nr < 8) {
+      document.querySelector(".nrInQueue").style.backgroundColor =
+        "hsl(130, 70%, 50%)";
+    }
+    if (8 <= nr && nr <= 17) {
+      document.querySelector(".nrInQueue").style.backgroundColor =
+        "hsl(47, 70%, 50%)";
+    }
   }
   setTimeout(update, 10000);
 }
