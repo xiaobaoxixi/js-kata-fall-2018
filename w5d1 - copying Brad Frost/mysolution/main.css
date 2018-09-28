@@ -1,0 +1,6 @@
+.circle {
+  border-radius: 50%;
+  border: 1px solid black;
+  position: fixed;
+  cursor: pointer;
+}
