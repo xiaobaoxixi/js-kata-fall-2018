@@ -59,7 +59,17 @@ function changeColor() {
     c.addEventListener("mouseenter", assignColor);
   });
   function assignColor(m) {
+    let opacity = 0;
     let color = `hsl(${Math.random() * 360}, 40%, 50%)`;
-    m.target.style.backgroundColor = color;
+    let interval = setInterval(colorTransition, 1000 / 60);
+    function colorTransition() {
+      if (opacity < 1) {
+        m.target.style.opacity = opacity;
+        opacity += 0.1;
+      } else {
+        clearInterval(interval);
+      }
+      m.target.style.backgroundColor = color;
+    }
   }
 }
