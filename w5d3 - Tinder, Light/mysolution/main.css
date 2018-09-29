@@ -1,11 +1,10 @@
 .feedback {
-  border: 2px solid black;
-  width: 70px;
-  height: 70px;
   position: fixed;
   top: 50vh;
+  left: 0;
 }
 .yes {
+  left: auto;
   right: 0;
 }
 img {
@@ -22,7 +21,7 @@ button {
 }
 .match {
   position: fixed;
-  top: 30vh;
+  top: 50vh;
   left: 45vw;
   display: none;
   color: red;

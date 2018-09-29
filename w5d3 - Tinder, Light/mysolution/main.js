@@ -2,6 +2,8 @@
 
 const img = document.querySelector("img");
 const match = document.querySelector(".match");
+const yes = document.querySelector(".yes");
+const no = document.querySelector(".no");
 let timeOut;
 
 window.addEventListener("DOMContentLoaded", init);
@@ -29,11 +31,11 @@ function getFemales() {
 function showPerson(person) {
   let currentIndex = Number(img.getAttribute("data-index"));
   img.setAttribute("src", person.results[currentIndex].picture.large);
-  const yes = document.querySelector(".yes");
-  const no = document.querySelector(".no");
   no.addEventListener("click", showNextPerson);
   yes.addEventListener("click", checkIfMatch);
   function showNextPerson() {
+    no.addEventListener("click", showNextPerson);
+    yes.addEventListener("click", checkIfMatch);
     match.style.display = "none";
     currentIndex < person.results.length - 1
       ? currentIndex++
@@ -44,9 +46,11 @@ function showPerson(person) {
   function checkIfMatch() {
     let currentIndex = Number(img.getAttribute("data-index"));
     if (person.results[currentIndex].inToYou === true) {
+      no.removeEventListener("click", showNextPerson);
+      yes.removeEventListener("click", checkIfMatch);
       match.style.display = "inherit";
       img.setAttribute("src", person.results[currentIndex].picture.large);
-      timeOut = setTimeout(showNextPerson, 2000);
+      timeOut = setTimeout(showNextPerson, 1500);
     } else {
       clearTimeout(timeOut);
       showNextPerson();
