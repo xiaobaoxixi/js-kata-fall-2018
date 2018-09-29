@@ -2,6 +2,7 @@
 
 const img = document.querySelector("img");
 const match = document.querySelector(".match");
+let timeOut;
 
 window.addEventListener("DOMContentLoaded", init);
 function init() {
@@ -11,11 +12,15 @@ function init() {
   femaleButton.addEventListener("click", getFemales);
 }
 function getMales() {
+  clearTimeout(timeOut); // useful when switch to another gender after a match is found and therefore a
+  match.style.display = "none";
   fetch("males.json")
     .then(data => data.json())
     .then(male => showPerson(male));
 }
 function getFemales() {
+  clearTimeout(timeOut);
+  match.style.display = "none";
   fetch("females.json")
     .then(data => data.json())
     .then(female => showPerson(female));
@@ -40,8 +45,10 @@ function showPerson(person) {
     let currentIndex = Number(img.getAttribute("data-index"));
     if (person.results[currentIndex].inToYou === true) {
       match.style.display = "inherit";
-      setTimeout(showNextPerson, 2000);
+      img.setAttribute("src", person.results[currentIndex].picture.large);
+      timeOut = setTimeout(showNextPerson, 2000);
     } else {
+      clearTimeout(timeOut);
       showNextPerson();
     }
   }
