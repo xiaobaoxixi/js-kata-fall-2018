@@ -1,0 +1,29 @@
+.feedback {
+  border: 2px solid black;
+  width: 70px;
+  height: 70px;
+  position: fixed;
+  top: 50vh;
+}
+.yes {
+  right: 0;
+}
+img {
+  width: 70%;
+  margin-left: 15%;
+}
+div.buttons {
+  text-align: center;
+  padding: 30px;
+}
+button {
+  padding: 20px;
+  background: transparent;
+}
+.match {
+  position: fixed;
+  top: 30vh;
+  left: 45vw;
+  display: none;
+  color: red;
+}
